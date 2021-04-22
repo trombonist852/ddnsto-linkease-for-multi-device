@@ -22,10 +22,10 @@ on:
 env:
   REPO_URL: https://github.com/trombonist852/mipsel
   REPO_BRANCH: main
-  #FEEDS_CONF:feeds.conf.default 
-  #CONFIG_FILE: 
-  #DIY_P1_SH: diy-part1.sh
-  #DIY_P2_SH: diy-part2.sh
+  FEEDS_CONF: feeds.conf.default 
+  CONFIG_FILE: config/mipsel.config
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: false
   UPLOAD_COWTRANSFER: false
