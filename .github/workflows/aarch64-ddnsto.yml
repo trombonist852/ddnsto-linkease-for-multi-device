@@ -98,11 +98,11 @@ jobs:
         #find dl -size -1024c -exec ls -l {} \;
         #find dl -size -1024c -exec rm -f {} \;
 
-    - name: Compile ddnsto
+    - name: Compile ddnsto&linkease
       id: compile
       run: |
         cd openwrt
-        make package/luci-app-ddnsto/{clean,compile} V=s
+        make package/luci-app-linkease/{clean,compile} V=s && make package/luci-app-ddnsto/{clean,compile} V=s
         echo "::set-output name=status::success"
 
   #- name: Compile the firmware
