@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/trombonist852/arm32
   REPO_BRANCH: main
   #FEEDS_CONF:feeds.conf.default 
-  #CONFIG_FILE: 
-  #DIY_P1_SH: diy-part1.sh
-  #DIY_P2_SH: diy-part2.sh
+  CONFIG_FILE: config/arm32.config
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: false
   UPLOAD_COWTRANSFER: false
@@ -74,13 +74,13 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
-    #- name: Load custom configuration
-      #run: |
-        #[ -e files ] && mv files openwrt/files
-        #[ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        #chmod +x $DIY_P2_SH
-        #cd openwrt
-        #$GITHUB_WORKSPACE/$DIY_P2_SH
+    - name: Load custom configuration
+      run: |
+        [ -e files ] && mv files openwrt/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        chmod +x $DIY_P2_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
