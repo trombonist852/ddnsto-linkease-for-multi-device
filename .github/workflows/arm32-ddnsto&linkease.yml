@@ -136,7 +136,7 @@ jobs:
           mkdir -p ${{ github.workspace }}/dist/Packages
           cp -r -f ${{ github.workspace }}/openwrt/bin/packages/*/*/*.ipk ${{ github.workspace }}/dist/Packages/
           cd ${{ github.workspace }}/dist
-          tar -czf Packages.tar.gz Packages
+          tar -czf ARM32.tar.gz Packages
           rm -rf Packages
           sha256sum `ls -1 | sort` > sha256sums
           echo "::set-output name=status::success"
